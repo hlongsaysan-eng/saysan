@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>รายการคำสั่งซื้อ - สำนักพิมพ์อมตะ</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">HLONG<small>ระบบติดตามคำสั่งซื้อหนังสือ สำนักพิมพ์อมตะ</small></div>
+      <nav class="menu">
+        <a href="index.html" class="current">รายการคำสั่งซื้อ</a>
+        <a href="add.html">เพิ่มคำสั่งซื้อ</a>
+        <a href="summary.html">สรุปยอด</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>รายการคำสั่งซื้อ</h1>
+    <p class="lead" id="order-count">กำลังโหลดข้อมูล</p>
+
+    <p class="notice" id="saved-notice" hidden>บันทึกคำสั่งซื้อใหม่แล้ว อยู่แถวบนสุดของตาราง</p>
+
+    <div class="filters">
+      <div class="search">
+        <label for="search">ค้นหา</label>
+        <input type="search" id="search" placeholder="พิมพ์ชื่อร้านหรือชื่อหนังสือ" autocomplete="off">
+      </div>
+      <div class="filter-buttons" id="status-filter" role="group" aria-label="กรองตามสถานะ">
+        <button type="button" class="filter-button current" data-status="">ทั้งหมด</button>
+        <button type="button" class="filter-button" data-status="รอส่ง">รอส่ง</button>
+        <button type="button" class="filter-button" data-status="ส่งแล้ว">ส่งแล้ว</button>
+        <button type="button" class="filter-button" data-status="ชำระแล้ว">ชำระแล้ว</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>เลขที่</th>
+              <th>ร้าน</th>
+              <th>หนังสือ</th>
+              <th class="num">จำนวน (เล่ม)</th>
+              <th class="num">ยอดเงิน</th>
+              <th>วันที่สั่ง</th>
+              <th>สถานะ</th>
+              <th>เปลี่ยนสถานะ</th>
+            </tr>
+          </thead>
+          <tbody id="order-rows"></tbody>
+        </table>
+      </div>
+      <p class="empty" id="no-result" hidden>ไม่พบรายการที่ตรงกับการค้นหาหรือสถานะที่เลือก</p>
+    </div>
+
+    <p class="note">แถวสีแดงคือรายการที่ยังไม่ชำระและสั่งมาเกิน 30 วัน</p>
+    <p class="note">ข้อมูลในหน้านี้เป็นข้อมูลสมมติสำหรับทดลองระบบ</p>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/format.js"></script>
+  <script src="js/list.js"></script>
+</body>
+</html>

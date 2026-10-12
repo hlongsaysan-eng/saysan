@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>เพิ่มคำสั่งซื้อ - สำนักพิมพ์อมตะ</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">HLONG<small>ระบบติดตามคำสั่งซื้อหนังสือ สำนักพิมพ์อมตะ</small></div>
+      <nav class="menu">
+        <a href="index.html">รายการคำสั่งซื้อ</a>
+        <a href="add.html" class="current">เพิ่มคำสั่งซื้อ</a>
+        <a href="summary.html">สรุปยอด</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>เพิ่มคำสั่งซื้อ</h1>
+    <p class="lead">สำหรับฝ่ายขายบันทึกคำสั่งซื้อใหม่</p>
+
+    <form class="card form" id="order-form" novalidate>
+      <div class="field">
+        <label for="shop">ร้าน</label>
+        <select id="shop">
+          <option value="">เลือกร้าน</option>
+        </select>
+        <p class="field-error" id="shop-error"></p>
+      </div>
+
+      <div class="field">
+        <label for="book">หนังสือ</label>
+        <select id="book">
+          <option value="">เลือกหนังสือ</option>
+        </select>
+        <p class="field-error" id="book-error"></p>
+      </div>
+
+      <div class="field">
+        <label for="quantity">จำนวน (เล่ม)</label>
+        <input type="text" inputmode="numeric" id="quantity" autocomplete="off">
+        <p class="field-error" id="quantity-error"></p>
+      </div>
+
+      <div class="field">
+        <label for="order-date">วันที่สั่ง</label>
+        <input type="date" id="order-date">
+        <p class="field-error" id="order-date-error"></p>
+      </div>
+
+      <dl class="totals">
+        <div>
+          <dt>ราคาต่อเล่ม</dt>
+          <dd id="price-text">-</dd>
+        </div>
+        <div>
+          <dt>ยอดเงิน</dt>
+          <dd class="total" id="total-text">-</dd>
+        </div>
+      </dl>
+
+      <p class="form-error" id="form-error" role="alert"></p>
+
+      <div class="actions">
+        <button type="submit" class="button">บันทึกคำสั่งซื้อ</button>
+        <a href="index.html" class="button button-plain">ยกเลิก</a>
+      </div>
+      <p class="note">คำสั่งซื้อใหม่จะเริ่มที่สถานะ รอส่ง</p>
+    </form>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/format.js"></script>
+  <script src="js/add.js"></script>
+</body>
+</html>
